@@ -1,0 +1,209 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - _20241CBE12B_G2</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/SushiPopG4.styles.css" asp-append-version="true" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+	<!-- HEADER -->
+	<header>
+		<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 px-5 py-0 shadow " style="font-family: 'Nunito', sans-serif; min-height:10vh">
+			<div class="d-flex flex-row justify-content-between w-75 m-auto align-items-center">
+				<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+					<img src="https://chi01pap001files.storage.live.com/y4mSelubDqvvkgnHVM1JA7GVWHclHYCvooD3G8ssF5KDwEgflER6zfhgbxPR_giqy2CU3rfjMYcSK5WMt3bhCXTWnAaqiAflYNvo_cwI_GMmlzwcvUG7xsW2qVKAEphaRpoO1I5WFXFTOqLPHOWuQjRZu_XcxjXOZBIczS9El6g9Aj2TJ7ahHwX-33FtHGj438O?encodeFailures=1&width=364&height=170" height="48" />
+				</a>
+
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+						aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+					<ul class="navbar-nav flex-grow-1">
+						<li class="nav-item">
+							<a class="nav-link-custom" href="@Url.Action("CategoryDetails","Categorias", new {nombre = "Combos"})">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-seam" viewBox="0 0 16 16">
+									<path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2zm3.564 1.426L5.596 5 8 5.961 14.154 3.5zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464z" />
+								</svg>
+								Combos
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link-custom" href="@Url.Action("CategoryDetails","Categorias", new {nombre = "Piezas"})">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-stop-circle" viewBox="0 0 16 16">
+									<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+									<path d="M5 6.5A1.5 1.5 0 0 1 6.5 5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5z" />
+								</svg>
+								Piezas
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link-custom" href="@Url.Action("CategoryDetails","Categorias", new {nombre = "Salads"})">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-feather2" viewBox="0 0 16 16">
+									<path d="M7.5 1.063v9.556L6 8.819V3a2 2 0 0 1 1.5-1.937M8 0a3 3 0 0 0-3 3v6a.5.5 0 0 0 .116.32L7.5 12.181V15.5a.5.5 0 0 0 1 0v-3.319l2.384-2.86A.5.5 0 0 0 11 9V3a3 3 0 0 0-3-3m.5 1.063A2 2 0 0 1 10 3v.293l-1.5 1.5zM10 4.707V8.82l-1.5 1.8V6.207z" />
+								</svg>
+								Salads
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link-custom" href="@Url.Action("CategoryDetails","Categorias", new {nombre = "Entradas"})">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-shop" viewBox="0 0 16 16">
+									<path d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.37 2.37 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0M1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5M4 15h3v-5H4zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1zm3 0h-2v3h2z" />
+								</svg>
+								Entradas
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link-custom" href="@Url.Action("CategoryDetails","Categorias", new {nombre = "Salsas"})">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-droplet-half" viewBox="0 0 16 16">
+									<path fill-rule="evenodd" d="M7.21.8C7.69.295 8 0 8 0q.164.544.371 1.038c.812 1.946 2.073 3.35 3.197 4.6C12.878 7.096 14 8.345 14 10a6 6 0 0 1-12 0C2 6.668 5.58 2.517 7.21.8m.413 1.021A31 31 0 0 0 5.794 3.99c-.726.95-1.436 2.008-1.96 3.07C3.304 8.133 3 9.138 3 10c0 0 2.5 1.5 5 .5s5-.5 5-.5c0-1.201-.796-2.157-2.181-3.7l-.03-.032C9.75 5.11 8.5 3.72 7.623 1.82z" />
+									<path fill-rule="evenodd" d="M4.553 7.776c.82-1.641 1.717-2.753 2.093-3.13l.708.708c-.29.29-1.128 1.311-1.907 2.87z" />
+								</svg>
+								Salsas
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link-custom" href="@Url.Action("CategoryDetails","Categorias", new {nombre = "Bebidas"})">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cup-straw" viewBox="0 0 16 16">
+									<path d="M13.902.334a.5.5 0 0 1-.28.65l-2.254.902-.4 1.927c.376.095.715.215.972.367.228.135.56.396.56.82q0 .069-.011.132l-.962 9.068a1.28 1.28 0 0 1-.524.93c-.488.34-1.494.87-3.01.87s-2.522-.53-3.01-.87a1.28 1.28 0 0 1-.524-.93L3.51 5.132A1 1 0 0 1 3.5 5c0-.424.332-.685.56-.82.262-.154.607-.276.99-.372C5.824 3.614 6.867 3.5 8 3.5c.712 0 1.389.045 1.985.127l.464-2.215a.5.5 0 0 1 .303-.356l2.5-1a.5.5 0 0 1 .65.278M9.768 4.607A14 14 0 0 0 8 4.5c-1.076 0-2.033.11-2.707.278A3.3 3.3 0 0 0 4.645 5c.146.073.362.15.648.222C5.967 5.39 6.924 5.5 8 5.5c.571 0 1.109-.03 1.588-.085zm.292 1.756C9.445 6.45 8.742 6.5 8 6.5c-1.133 0-2.176-.114-2.95-.308a6 6 0 0 1-.435-.127l.838 8.03c.013.121.06.186.102.215.357.249 1.168.69 2.438.69s2.081-.441 2.438-.69c.042-.029.09-.094.102-.215l.852-8.03a6 6 0 0 1-.435.127 9 9 0 0 1-.89.17zM4.467 4.884s.003.002.005.006zm7.066 0-.005.006zM11.354 5a3 3 0 0 0-.604-.21l-.099.445.055-.013c.286-.072.502-.149.648-.222" />
+								</svg> 
+								Bebidas
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link-custom" href="@Url.Action("CategoryDetails","Categorias", new {nombre = "Postres"})">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cookie" viewBox="0 0 16 16">
+									<path d="M6 7.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m4.5.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3m-.5 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
+									<path d="M8 0a7.96 7.96 0 0 0-4.075 1.114q-.245.102-.437.28A8 8 0 1 0 8 0m3.25 14.201a1.5 1.5 0 0 0-2.13.71A7 7 0 0 1 8 15a6.97 6.97 0 0 1-3.845-1.15 1.5 1.5 0 1 0-2.005-2.005A6.97 6.97 0 0 1 1 8c0-1.953.8-3.719 2.09-4.989a1.5 1.5 0 1 0 2.469-1.574A7 7 0 0 1 8 1c1.42 0 2.742.423 3.845 1.15a1.5 1.5 0 1 0 2.005 2.005A6.97 6.97 0 0 1 15 8c0 .596-.074 1.174-.214 1.727a1.5 1.5 0 1 0-1.025 2.25 7 7 0 0 1-2.51 2.224Z" />
+								</svg>
+								Postres
+							</a>
+						</li>
+					</ul>
+
+					<partial name="_LoginPartial"/>
+				</div>
+
+				<div class="d-flex flex-row flex-grow-0 flex-shrink-1 ">
+					<div class="dropdown">
+						<button class="nav-link fa-solid fa-user" type="button" id="dropdownMenuButton1" style="color: #ec1c24; font-size:1.2rem; border: none; background: transparent"  data-bs-toggle="dropdown" aria-expanded="false">
+						</button>
+						
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+							@if (SignInManager.IsSignedIn(User))
+							{
+								@if (User.IsInRole("ADMIN") || User.IsInRole("EMPLEADO"))
+								{
+									<li class="nav-item">
+										<a class="nav-link text-dark" asp-controller="Categorias" asp-action="">Categorias</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link text-dark" asp-controller="Productos" asp-action="">Productos</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link text-dark" asp-controller="Descuentos" asp-action="">Descuentos</a>
+									</li>
+									<div class="dropdown-divider"></div>
+
+									if (User.IsInRole("ADMIN"))
+									{
+										<li class="nav-item">
+											<a class="nav-link text-dark" asp-controller="Empleados" asp-action="">Empleados</a>
+										</li>
+									}
+										<li class="nav-item">
+											<a class="nav-link text-dark" asp-controller="Clientes" asp-action="">Clientes</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link text-dark" asp-controller="Contactos" asp-action="">Contactos</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link text-dark" asp-controller="Reclamos" asp-action="">Reclamos</a>
+										</li>
+								}
+									<div class="dropdown-divider"></div>
+									<li class="nav-item">
+										<form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+											<button id="logout" type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+										</form>
+									</li>
+							}
+							else
+							{
+								<li class="nav-item">
+									<a class="nav-link text-dark" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+								</li>
+							}
+						</ul>
+					</div>
+					<a asp-controller="Carritos" asp-action="" class="fa-solid fa-cart-shopping nav-link" style="color: #ec1c24; font-size:1.2rem"></a>
+				</div>               
+			</div>
+		</nav>
+	</header>
+
+	<div class="container">
+		<main role="main" class="pb-3">
+			@RenderBody()
+		</main>
+	</div>
+
+
+	<!-- FOOTER -->
+	<footer class="border-top footer-custom">
+		<div class="container">
+			<div class="row">
+				<div class="col-4">
+					<img src="~/imagenes/logo_sin_fondo.png" alt="Logo sin fondo" height="50" />
+				</div>
+
+				<div class="col-4">
+					<a class="nav-link p=0 footer-nav-link-custom" asp-controller="Contactos" asp-action="Create">Contacto</a>
+					<a class="nav-link p=0 footer-nav-link-custom" asp-controller="Home" asp-action="Index">Seguir pedido</a>
+					<a class="nav-link p=0 footer-nav-link-custom" asp-controller="Reclamos" asp-action="Create">Reclamos</a>
+					<a class="nav-link p=0 footer-nav-link-custom" asp-controller="Home" asp-action="Index">Legales</a>
+				</div>
+
+				<div class="col-4">
+					<a class="nav-link p=0 footer-nav-link-custom" href="@Url.Action("CategoryDetails","Categorias", new {nombre = "Combos"})">Combos</a>
+					<a class="nav-link p=0 footer-nav-link-custom" href="@Url.Action("CategoryDetails","Categorias", new {nombre = "Piezas"})">Piezas</a>
+					<a class="nav-link p=0 footer-nav-link-custom" href="@Url.Action("CategoryDetails","Categorias", new {nombre = "Salads"})">Salads</a>
+					<a class="nav-link p=0 footer-nav-link-custom" href="@Url.Action("CategoryDetails","Categorias", new {nombre = "Entradas"})">Entradas</a>
+					<a class="nav-link p=0 footer-nav-link-custom" href="@Url.Action("CategoryDetails","Categorias", new {nombre = "Salsas"})">Salsas</a>
+					<a class="nav-link p=0 footer-nav-link-custom" href="@Url.Action("CategoryDetails","Categorias", new {nombre = "Bebidas"})">Bebidas</a>
+					<a class="nav-link p=0 footer-nav-link-custom" href="@Url.Action("CategoryDetails","Categorias", new {nombre = "Postres"})">Postres</a>
+				</div>
+			</div>
+
+			<div class="row mt-2">
+				<div class="col-12 d-flex justify-content-center footer-copyrigth-custom">
+					<p>&copy; 2024 SushiPOP - Desarrollo Web por Grupo 2 ORT</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+	@await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

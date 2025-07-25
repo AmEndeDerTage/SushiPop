@@ -1,0 +1,70 @@
+﻿@model IEnumerable<_20241CBE12B_G2.Models.CarritoItem>
+
+@{
+    ViewData["Title"] = "Index";
+    decimal precioTotal = 0;
+    int? carritoId = Model?.FirstOrDefault()?.CarritoId;
+  
+}
+
+<h1 style="text-align:center">Carrito</h1>
+@if(Model.Count() > 0){
+<div id="contenedor-grilla">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Producto
+                </th>
+                <th>
+                    Precio  
+                </th>
+                <th>
+                    Foto
+                </th>
+                <th>
+                    Cantidad
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        
+        <tbody>
+        @foreach (var item in Model) {
+            if(item.Producto != null){
+                precioTotal = (item.Producto.Precio * item.Cantidad) + precioTotal;
+                <tr>
+                    <td>
+                        @item.Producto.Nombre
+                    </td>
+                    <td>
+                        @item.Producto.Precio
+                    </td>
+                    <td>
+                        <img src="@item.Producto.Foto" alt="Foto de @item.Producto.Nombre" style="max-width: 60px; max-height: 60px;" />
+                    </td>
+                    <td>
+                        @item.Cantidad
+                    </td>
+                    <td>
+                        <a asp-controller="CarritoItems" asp-action="Delete" asp-route-id="@item.Id"><i class="fa-solid fa-trash-can"></i></a>
+                    </td>
+                </tr>
+            }
+        }
+        </tbody>
+    </table>
+
+    <div style="text-align:center">
+        <h2>Total: $@precioTotal </h2>
+    </div>
+
+    <a asp-controller="Carritos" asp-action="Index" asp-route-id="@carritoId" class="btn btn-danger">Cancelar</a>
+    <a asp-controller="Carritos" asp-action="Edit" asp-route-id="@carritoId" class="btn btn-primary">Ir al pedido</a>
+</div>
+
+}else{
+    <div id="contenedor-grilla-vacio">
+        <h2 style="text-align:center">El carrito esta vacio</h2>
+    </div>
+}

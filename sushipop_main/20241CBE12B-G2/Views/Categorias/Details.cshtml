@@ -1,0 +1,49 @@
+﻿@model _20241CBE12B_G2.Models.Categoria
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@using Microsoft.AspNetCore.Identity
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="d-flex flex-row pt-2 justify-content-between align-items-center">
+    <h1>@Model.Nombre</h1>
+
+    @if (SignInManager.IsSignedIn(User))
+    {
+        @if (User.IsInRole("ADMIN"))
+        {
+            <div>
+                <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+                <a asp-action="Index">Back to List</a>
+            </div>
+        }
+
+    }
+   
+</div>
+<hr class="mt-0" />
+
+
+<div class="d-flex flex-wrap gap-3 pb-5 w-100 h-100">
+    @if(Model?.Productos != null)
+    {
+        foreach (var item in Model.Productos)
+        {
+            <div class=" shadow d-flex flex-column rounded" style="width: 24%; height:400px;">
+
+                <img src="@(item.Foto != null ? item.Foto : "https://imageup.me/images/6874a2ee-a942-4a62-bb52-21f143e84532.png")" class="@(item.Foto != null ? " rounded" : "opacity-75 rounded")" alt="@item.Nombre" style="width:auto; height: 80%; object-fit: cover;">
+
+                <div class="card-body d-flex flex-row justify-content-between align-items-center" style="width:100%; height: 25%">
+                    <div>
+                        <h5 class="card-title">@item.Nombre</h5>
+                        <p class="card-text text-black">@item.Descripcion</p>
+                    </div>
+                    <a asp-controller="Productos" asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Ver</a>
+                </div>
+            </div>
+        }
+    }
+</div>

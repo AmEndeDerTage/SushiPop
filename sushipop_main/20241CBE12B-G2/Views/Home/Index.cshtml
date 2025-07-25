@@ -1,0 +1,134 @@
+﻿@model _20241CBE12B_G2.Models.HomeViewModel 
+
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+
+@if (Model.MensajePromo == "")
+{
+    // hay promo
+    <div class="hero-custom">
+        <p>Hoy <span>@Model.Dia</span> ahorrá un <span> @Model.Porcentaje</span> en <span> @Model.Producto </span>!</p>
+    </div>
+
+} else
+{
+    // no hay promo
+    <div class="hero-custom">
+        <p>@Model.MensajePromo</p>
+    </div>
+}
+
+
+<!-- FAVORITOS -->
+<section>
+    <h2 class="favoritos-custom">Los favoritos <img src="~/imagenes/emoticon_smile.png" alt="emoticon_smile" height="50"/></h2>
+    <div class="favoritos-imagenes">
+        <div class="row">
+            <div class="col-md-8 col-12 mb-3">
+                <div class="custom1 favoritos-container">
+                    <div class="overlay">
+                        <p>Combo 100% salmón Alaska XL de 40 piezas</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-12 mb-3">
+                <div class="custom2 favoritos-container">
+                    <div class="overlay">
+                        <p>Postre helado OREO</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-12 mb-3">
+                <div class="custom3 favoritos-container">
+                    <div class="overlay">
+                        <p>Empanaditas chinas de carne</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 col-12 mb-3">
+                <div class="custom4 favoritos-container">
+                    <div class="overlay">
+                        <p>Langostinos rebozados en panko fritos con salsa de tamarindo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- HORARIO DE ATENCION -->
+<section class="delivery-custom">
+    <div class="row">
+        <div class="col-12">
+            <p>Hoy <span>@Model.Dia</span> atendemos 
+                <br/>
+                <span>@Model.HorarioAtencion</span> por WhatsApp 
+                <br/>
+                <span>+541140044004</span>
+            </p>
+        </div>
+    </div>
+</section>
+
+
+<!-- LOCALES -->
+<section>
+    <div class="locales-custom">
+        <p>Nuestros Locales</p>
+    </div>
+
+    <div class="row">
+        <div class="col-3">
+            <div class="local-container local1">
+                <div class="overlay">
+                    <div class="text">
+                        <h2>PALERMO</h2>
+                        <p>Alto Palermo local 1</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="local-container local2">
+                <div class="overlay">
+                    <div class="text">
+                        <h2>RECOLETA</h2>
+                        <p>Callao 986</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="local-container local3">
+                <div class="overlay">
+                    <div class="text">
+                        <h2>BELGRANO</h2>
+                        <p>Av. Monroe 2401</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="local-container local4">
+                <div class="overlay">
+                    <div class="text">
+                        <h2>CABALLITO</h2>
+                        <p>Av. Acoyte 234</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-destacado">
+        <p>Lunes a viernes de 11 a 15 hs. y de 18 a 23:30 hs. Sábado y domingo de 17 a 0 hs.</p>
+    </div>
+</section>
+
+
+

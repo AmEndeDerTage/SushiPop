@@ -1,0 +1,64 @@
+﻿@model _20241CBE12B_G2.Models.Reclamo
+
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Reclamo</h4>
+@if (User.IsInRole("ADMIN") || User.IsInRole("EMPLEADO"))
+{
+    <p class="pt-3">Los empleados no realizan reclamos</p>
+
+}
+else
+{
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="NombreCompleto" class="control-label"></label>
+                <input asp-for="NombreCompleto" class="form-control" />
+                <span asp-validation-for="NombreCompleto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Telefono" class="control-label"></label>
+                <input asp-for="Telefono" class="form-control" />
+                <span asp-validation-for="Telefono" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PedidoId" class="control-label"></label>
+                <input asp-for="PedidoId" class="form-control" />
+                <span asp-validation-for="PedidoId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DetalleReclamo" class="control-label"></label>
+                <textarea asp-for="DetalleReclamo" class="form-control"></textarea>
+                <span asp-validation-for="DetalleReclamo" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="reset" value="Borrar" class="btn btn-danger" />
+                <input type="submit" value="Enviar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-controller="Home" asp-action="">Volver</a>
+</div>
+}
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
