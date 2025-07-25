@@ -1,0 +1,391 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+html, body {
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    html, body {
+        font-size: 16px;
+    }
+}
+
+body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-wrapper {
+    flex: 1;
+}
+
+.nav-link-custom {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    text-decoration: none;
+    color: #000000;
+    padding: 0 15px;
+}
+
+
+/**************************** FOOTER *******************************/
+
+.container {
+    flex: 1;
+}
+
+.footer-custom {
+    padding: 15px 0;
+    background-color: #000000;
+    opacity: 0.8;
+    color: #FFFFFF;
+    width: 100%;
+}
+
+.footer-custom .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-nav-link-custom {
+    display: block;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.footer-copyrigth-custom {
+    text-align: center;
+    padding: 15px 0;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    color: #F7F0E5;
+}
+
+.footer-custom img {
+    max-height: 50px;
+}
+
+.footer-custom .nav-link {
+    padding: 0;
+}
+
+.border-top {
+    border-top: 1px solid #dee2e6 !important;
+}
+
+
+/**************************** CARD DE BIENVENIDA *******************************/
+
+.hero-custom {
+    background-image: url("/imagenes/bg_hero.png");
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    padding: 6% 5% 0.5% 37%;
+    border-radius: 25px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.hero-custom p {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    font-size: 53px;
+    color: #FFFFFF;
+    text-align: center;
+    animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.hero-custom p span {
+    font-weight: 700;
+    color: #F26569;
+}
+
+@media screen and (max-width: 768px) {
+    .hero-custom {
+        height: auto;
+        padding: 10% 5% 10% 5%; 
+    }
+
+    .hero-custom p {
+        font-size: 30px;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in-bck-center {
+    0% {
+        transform: translateZ(600px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateZ(0);
+        opacity: 1;
+    }
+}
+
+
+/**************************** FAVORITOS *******************************/
+
+.favoritos-custom {
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    color: #535662;
+    font-size: 50px;
+    text-align: center;
+    margin: 30px;
+}
+
+.favoritos-container {
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 320px;
+    border: 2px;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 30px;
+}
+
+.custom1 {
+    background-image: url("/imagenes/fav_tabla.png");
+}
+
+.custom2 {
+    background-image: url("/imagenes/fav_postre.png");
+}
+
+.custom3 {
+    background-image: url("/imagenes/fav_arrolladitos.png");
+}
+
+.custom4 {
+    background-image: url("/imagenes/fav_tempura.png");
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.overlay p {
+    margin: 0;
+    font-size: 20px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .favoritos-custom {
+        font-size: 40px;
+    }
+
+    .favoritos-container {
+        height: 250px;
+    }
+
+    .overlay p {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .favoritos-custom {
+        font-size: 30px;
+        margin: 20px;
+    }
+
+    .favoritos-container {
+        height: 200px;
+    }
+
+    .overlay p {
+        font-size: 16px;
+    }
+}
+
+
+/**************************** DELIVERY *******************************/
+
+.delivery-custom {
+    background-image: url("/imagenes/delivery_guy.png");
+    background-color: #fa4e4e;
+    background-size: 46%;
+    background-position: right;
+    background-repeat: no-repeat;
+    height: 380px;
+    padding: 50px;
+    margin: 15px;
+    display: flex;
+    align-items: flex-start;
+    border-radius: 30px;
+}
+
+.delivery-custom p {
+    font-family: 'Nunito', sans-serif;
+    font-size: 55px;
+    color: #FFFFFF;
+    text-align: left;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.delivery-custom p span {
+    font-weight: 700;
+    color: #FFDE59;
+}
+
+@media (max-width: 768px) {
+    .delivery-custom {
+        padding: 30px;
+        background-size: 60%;
+        height: auto;
+        align-items: center;
+    }
+
+    .delivery-custom p {
+        font-size: 40px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .delivery-custom {
+        padding: 20px;
+        background-size: 80%;
+        background-position: center;
+        height: auto;
+        align-items: center;
+        margin: 10px;
+    }
+
+    .delivery-custom p {
+        font-size: 28px;
+        text-align: center;
+        line-height: 1.4;
+    }
+}
+
+
+/**************************** LOCALES *******************************/
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col-3 {
+    flex: 1 1 calc(25% - 20px);
+    margin: 10px;
+}
+
+@media (max-width: 768px) {
+    .col-3 {
+        flex: 1 1 calc(50% - 20px);
+    }
+}
+
+@media (max-width: 576px) {
+    .col-3 {
+        flex: 1 1 100%;
+    }
+}
+
+.local-container {
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 320px;
+    border: 2px;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.local-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.local1 {
+    background-image: url("/imagenes/local_palermo.png");
+}
+
+.local2 {
+    background-image: url("/imagenes/local_recoleta.png");
+}
+
+.local3 {
+    background-image: url("/imagenes/local_belgrano.png");
+}
+
+.local4 {
+    background-image: url("/imagenes/local_caballito.png");
+}
+
+.locales-custom {
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    font-size: 3rem;
+    color: #535662;
+    padding-bottom: 10px;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.text {
+    position: relative;
+}
+
+.text h2, .text p {
+    margin: 0;
+}
+
+.p-destacado {
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.5rem;
+    padding-top: 35px;
+}
